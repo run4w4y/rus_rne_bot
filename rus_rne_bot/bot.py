@@ -8,10 +8,10 @@ updater = Updater(token=token, use_context=True)
 dispatcher = updater.dispatcher
 
 
-def start(update, dispatcher):
+def start(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="started")
 
-def new(update, dispatcher):
+def new(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="please wait")
     try:
         problems = parser.parse()
@@ -28,7 +28,7 @@ def new(update, dispatcher):
             correct_option_id=problem.answer_id
         )
 
-def unknown(update, dispatcher):
+def unknown(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="unknown command")
 
 def run():
