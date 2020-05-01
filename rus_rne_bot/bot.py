@@ -13,11 +13,7 @@ def start(update, context):
 
 def new(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="please wait")
-    try:
-        problems = parser.parse()
-    except (BaseException):
-        context.bot.send_message(chat_id=update.effective_chat.id, text="couldnt parse problems")
-        return
+    problems = parser.parse()
     for problem in problems:
         context.bot.send_poll(
             chat_id=update.effective_chat.id,
