@@ -1,7 +1,7 @@
 from .config import token
 import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from rne_parser import parse
+from .rne_parser import parse
 import time
 
 updater = Updater(token=token, use_context=True)
