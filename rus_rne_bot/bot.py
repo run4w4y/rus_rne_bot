@@ -23,6 +23,7 @@ def new(update, context):
             type=telegram.Poll.QUIZ,
             correct_option_id=problem.answer_id
         )
+        time.sleep(60)
 
 def unknown(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="unknown command")
