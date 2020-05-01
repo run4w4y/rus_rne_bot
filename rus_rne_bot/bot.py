@@ -1,7 +1,7 @@
 from .config import token
 import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-import parser
+from rne_parser import parse
 import time
 
 updater = Updater(token=token, use_context=True)
@@ -13,7 +13,7 @@ def start(update, context):
 
 def new(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="please wait")
-    problems = parser.parse()
+    problems = parse()
     for problem in problems:
         context.bot.send_poll(
             chat_id=update.effective_chat.id,
